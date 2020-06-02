@@ -2,18 +2,18 @@
 	Some piece of code
 }
 
-//TODO implement the functionality of getting user details from ID
+//TODO 4/6/2020 implement the functionality of getting user details from ID
 {
 	code
 }
 
-//TODO adding validation using secret token on github webhooks
+//TODO 6/6/2020 adding validation using secret token on github webhooks
 
 {
 	normal payload manipulation
 }
 
-//TODO Refactoring the code
+//TODO 8-6-2020 Refactoring the code
 {
 	bad code written over here
 }
