@@ -7,13 +7,13 @@
 	code
 }
 
-//TODO 6/6/2020 adding validation using secret token on github webhooks
+//TODO adding PR on github webhooks
 
 {
 	normal payload manipulation
 }
 
-//TODO 8-6-2020 Refactoring the code
+//TODO 08-06-2020 Refactoring the code
 {
 	bad code written over here
 }
