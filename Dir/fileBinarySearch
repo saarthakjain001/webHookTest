@@ -1,0 +1,59 @@
+#include<bits/stdc++.h>
+using namespace std;
+//TODO 15/06/2020 Swap function
+void swap(int*  a,int* b)
+{
+	int t;
+	t=*a;
+	*a=*b;
+	*b=t;
+}
+
+//TODO Binary Search Function
+int binarySearch(int arr[], int l, int r, int x) 
+{ 
+    if (r >= l) { 
+        int mid = l + (r - l) / 2; 
+        if (arr[mid] == x) 
+            return mid;
+        if (arr[mid] > x) 
+            return binarySearch(arr, l, mid - 1, x); 
+        return binarySearch(arr, mid + 1, r, x); 
+    } 
+  
+    return -1; 
+} 
+
+//TODO int main function
+int main()
+{
+	int n;
+	cin>>n;
+	int a[100000],b[100000],vis[100000],ev=0,od=0;
+	for(int i=0;i<n;i++)
+	{
+		cin>>a[i];
+		b[i]=a[i];
+		if(a[i]%2==0)ev=1;
+		else od =1;
+		vis[i] = 0;
+	}	
+
+	//TODO 15/06/2020 Sorting function
+	sort(b,b+n);
+	if(ev==1 && od==1)
+	{
+	for(int i=0;i<n;i++)
+	{
+		cout<<b[i]<<" ";
+	}
+	}
+	else
+	{
+		for(int i=0;i<n;i++)
+	{
+		cout<<a[i]<<" ";
+	}
+	}
+}
+//TODO Organize
