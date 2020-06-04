@@ -1,0 +1,79 @@
+#include<bits/stdc++.h>
+using namespace std;
+//TODO root function
+long long int root(long long int *init,long long int x)
+{
+	long long int j = x;
+	while(init[j]!=j)
+	{
+		j = init[j];
+	}
+	return j;
+}
+//TODO union function
+void unio(long long int a,long long int b,long long int *init,long long int *l,long long int *cc)
+{
+	long long int x=root(init,a);
+	long long int y=root(init,b);
+	if(l[x]>=l[y])
+	{
+		l[x]+=1;
+		//l[y]=l[x];
+		if(x!=y)
+		{
+		//TODO union function comment  1
+			cc[x]+=cc[y];
+			cc[y]=cc[x];
+		}
+		init[y]=init[x];
+	}
+	else
+	{
+		l[y]+=1;
+		//l[x]=l[y];
+		if(x!=y)
+		{
+			cc[y]+=cc[x];
+			cc[x]=cc[y];
+		}
+		init[x]=init[y];
+	}
+}
+//TODO 30/06/2020 main function
+int main()
+{
+	long long int n,m,ch=0;
+	cin>>n>>m;
+	long long int l[n],init[n],cc[n];
+	for(long long int i=1;i<=n;i++)
+	{
+	//TODO  26/06/2020 union function comment  2
+		init[i] = i;
+		l[i]=0;
+		cc[i]=1;
+	}
+	for(long long int i=0;i<m;i++)
+	{
+		int x,y;
+		cin>>x>>y;
+		unio(root(init,x),root(init,y),init,l,cc);
+	}
+	for(long long int i=1;i<=n;i++)
+	{
+		if(l[i] == (cc[i]*cc[i-1])/2 || l[i]==1 || l[i]==0)
+		{
+			continue;
+		}
+		else 
+		{
+		//TODO   union function comment  3
+			ch=1;break;
+		}
+	}
+	for(long long int i=1;i<=n;i++)
+	{
+		cout<<l[i]<<" ";
+	}
+	if(ch==0) cout<<"YES";
+	else cout<<"NO";
+}
