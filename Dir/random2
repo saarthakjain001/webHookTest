@@ -55,6 +55,8 @@ int main()
 	for(long long int i=0;i<m;i++)
 	{
 		int x,y;
+//TODO 26/08/2020 jira task 
+
 		cin>>x>>y;
 		unio(root(init,x),root(init,y),init,l,cc);
 	}
@@ -71,9 +73,20 @@ int main()
 		}
 	}
 	for(long long int i=1;i<=n;i++)
-	{
+	{//TODO not jira task 
+
 		cout<<l[i]<<" ";
 	}
 	if(ch==0) cout<<"YES";
 	else cout<<"NO";
 }
+//TODO new jira task
+
+//TODO pseudo task
+
+
+
+
+
+
+
