@@ -21,6 +21,7 @@ void unio(long long int a,long long int b,long long int *init,long long int *l,l
 		//l[y]=l[x];
 		if(x!=y)
 		{
+		//TODO union function comment  1
 			cc[x]+=cc[y];
 			cc[y]=cc[x];
 		}
@@ -46,6 +47,7 @@ int main()
 	long long int l[n],init[n],cc[n];
 	for(long long int i=1;i<=n;i++)
 	{
+	//TODO  26/06/2020 union function comment  2
 		init[i] = i;
 		l[i]=0;
 		cc[i]=1;
@@ -64,6 +66,7 @@ int main()
 		}
 		else 
 		{
+		//TODO   union function comment  3
 			ch=1;break;
 		}
 	}
