@@ -1,0 +1,111 @@
+#include<bits/stdc++.h>
+using namespace std;
+//TODO 26/06/2020 Swap
+void swap(int*  a,int* b)
+{
+	int t;
+	t=*a;
+	*a=*b;
+	*b=t;
+}
+//TODO Heapify function
+void min_heapify(int *a,int i,int n)
+{
+	int smallest,left=2*i+1,right=2*i+2;
+	if(left<n && a[left]<a[i]) smallest = left;
+	else smallest =i;
+	if(right<n && a[right]<a[smallest]) smallest=right;
+	if(smallest!=i)
+	{
+		swap(&a[i],&a[smallest]);
+		min_heapify(a,smallest,n);
+	}
+}
+//TODO Remove this comment
+/*int search(int *a,int ind,int x,int n)
+{
+	int i=ind;
+	while(a[i]!=x && i<n)
+	{
+		if(x>a[i])
+		{
+			i=2*i+2;
+		}
+		else if(x<a[i])
+		{
+			i=2*i+1;
+		}
+	}
+	if(i>n)
+	{
+		return -1;
+	}
+	else
+	{
+		return i;
+	}
+}*/
+//TODO 26/06/2020 Main
+int main()
+{
+	int n,m;
+	cin>>n>>m;
+	int ch[100001];int act[100001];int ind=0; 
+	for(int i=1;i<=n;i++)
+	{
+		ch[i]=0;
+	}
+	for(int i=0;i<m;i++)
+	{
+		char sign,mm;int k=0;int t;
+		cin>>sign>>t;
+		if(sign=='+')
+		{
+			if(ch[t]==1)
+			{
+				cout<<"Already on\n";
+			}
+			else
+			{
+			int conf;
+				for(int j=0;j<ind;j++)
+				{
+					if(__gcd(t,act[j])==1) continue;
+					else
+					{
+						
+						conf=act[j];k=1;break;
+					}
+				}
+				if(k==0)
+				{
+					cout<<"Success\n";
+					ch[t]=1;
+					act[ind++]=t;
+					min_heapify(act,ind-1,ind);
+				}
+				else
+				{
+					cout<<"Conflict with "<<conf<<"\n";
+				}
+			}
+		}
+		//TODO  Random Comment in between
+		else
+		{
+			if(ch[t]==0) cout<<"Already off\n";
+			else
+			{
+					for(int j=0;j<ind;j++)
+					{
+						if(act[j]==t)
+						{
+						act[j]=act[ind-1];ind--;
+						min_heapify(act,j,ind);
+						}
+					}
+				ch[t]=0;cout<<"Success\n";
+			}
+		}
+	}
+}
